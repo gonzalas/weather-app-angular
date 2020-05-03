@@ -1,0 +1,6 @@
+<div class="search-bar">
+    <input type="text" [(ngModel)]="quest" (keyup.enter)="searchData()" placeholder="Ingrese ciudad ..." autofocus />
+    <button (click)="searchData()">Search</button>
+</div>
+
+<app-result [questSearch]="questSearched" [forecast]="forecast"></app-result>

@@ -1,0 +1,81 @@
+<div *ngIf="questSearch" class="container">
+    <div class="info">
+        <p>
+            Condiciones en
+            <span>{{ questSearch.name }}</span>
+        </p>
+        <div class="temp">
+            <div>
+                <h1>{{ questSearch.main.temp }}°C</h1>
+            </div>
+            <div>
+                <i class="fas fa-angle-double-right"></i>
+            </div>
+            <div>
+                <img src="https://api.openweathermap.org/img/w/{{
+            this.questSearch.weather[0].icon
+          }}.png" />
+            </div>
+        </div>
+        <div class="rains">
+            <div>
+                <h3>- {{ questSearch.weather[0].description | titlecase }} -</h3>
+            </div>
+            <div *ngIf="questSearch.rain">
+                <h3>{{ questSearch.rain["1h"] }} mm -</h3>
+            </div>
+        </div>
+        <h5 *ngIf="questSearch.snow">Nieve: {{questSearch.snow['1h']}mm}</h5>
+        <h5>Nubosidad: {{ questSearch.clouds.all }}%</h5>
+        <h5>Sensación térmica: {{ questSearch.main.feels_like }} °C</h5>
+        <h5>Presión: {{ questSearch.main.pressure }} hpa</h5>
+        <h5>Humedad: {{ questSearch.main.humidity }}%</h5>
+        <h5>
+            Viento: {{ questSearch.wind.speed }} m/s - {{ questSearch.wind.deg | wind }}
+        </h5>
+    </div>
+
+    <div class="map">
+        <app-map [query]="questSearch"></app-map>
+    </div>
+</div>
+
+<div *ngIf="forecast" class="forecast-container">
+    <header>
+        <h1>Pronóstico para los próximos días en {{ questSearch.name }}</h1>
+    </header>
+    <div class="forecast-description" id="forecast-title">
+        <div>
+            <h5>Día / Hora</h5>
+        </div>
+        <div>
+            <h5>Temperatura (°C)</h5>
+        </div>
+        <div>
+            <h5>Sensación térmica (°C)</h5>
+        </div>
+        <div>
+            <h5>Humedad (%)</h5>
+        </div>
+        <div>
+            <h5>Viento (m/s) - Dirección</h5>
+        </div>
+    </div>
+    <div *ngFor="let f of forecast['list']" class="forecast-description">
+        <div>
+            <h5>{{ f.dt_txt | date: "EEEE d - HH:mm" }}</h5>
+        </div>
+        <div>
+            <h5>{{ f.main.temp }}</h5>
+        </div>
+        <div>
+            <h5>{{ f.main.feels_like }}</h5>
+        </div>
+        <div>
+            <h5>{{ f.main.humidity }}</h5>
+        </div>
+        <div>
+            <h5>{{ f.wind.speed }} - {{ f.wind.deg | wind }}</h5>
+        </div>
+    </div>
+</div>

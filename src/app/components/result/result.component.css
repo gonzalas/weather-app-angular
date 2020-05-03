@@ -1,0 +1,70 @@
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: space-around;
+    margin: auto 150px;
+    padding: 10px;
+}
+
+.container * {
+    padding: 5px;
+    text-align: justify;
+}
+
+.info p span {
+    color: #318f2c;
+    text-shadow: 1px 1px 1px #6fb06b;
+}
+
+.info .temp {
+    display: flex;
+}
+
+.info .temp div {
+    align-self: center;
+}
+
+.info .temp i {
+    font-size: 1em;
+    padding: 2px;
+    margin: auto 10px;
+}
+
+.info .rains {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.info .rains div {
+    padding: 0;
+}
+
+.forecast-container {
+    margin: 5% 10%;
+    cursor: default;
+}
+
+.forecast-container header {
+    text-align: center;
+    border-top: 1px solid #000000;
+    padding: 5%;
+}
+
+#forecast-title {
+    background-color: #5e9639;
+    color: white;
+    font-weight: 900;
+    font-size: 1rem;
+}
+
+.forecast-description {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #5e9639;
+    background-color: white;
+    box-shadow: 2px 3px #b7c2ae;
+    text-align: center;
+}
