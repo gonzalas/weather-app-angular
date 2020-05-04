@@ -29,3 +29,16 @@ video {
     left: 0;
     width: 100%;
 }
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (orientation: portrait) {
+    section {
+        padding: 30px;
+    }
+    .video-container {
+        height: 60px;
+    }
+    .video-container h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+}

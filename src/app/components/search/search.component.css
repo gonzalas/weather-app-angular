@@ -29,3 +29,18 @@
     background-color: #5e9639;
     transition: 1s;
 }
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (orientation: portrait) {
+    .search-bar {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+    .search-bar input {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+    .search-bar button {
+        width: 20%;
+    }
+}

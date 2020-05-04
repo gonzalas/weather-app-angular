@@ -13,14 +13,22 @@ export class SearchComponent implements OnInit {
   forecast: any[];
   constructor(public infoService: InfoWeatherService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const oldData = localStorage.getItem("data");
+    this.quest = oldData.replace(/['"]+/g, "");
+    this.searchData();
+  }
 
   searchData() {
     this.infoService.getActualWeather(this.quest).subscribe(
       (resp: Data) => {
         this.questSearched = resp;
-        console.log(resp);
-        localStorage.setItem("data", JSON.stringify(this.questSearched));
+
+        //Store last quest
+        localStorage.setItem("data", JSON.stringify(this.questSearched.name));
+
+        //Clean input
+        document.querySelector("input").value = "";
       },
       (err) => console.log(err)
     );

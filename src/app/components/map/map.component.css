@@ -4,3 +4,10 @@
     box-shadow: 5px 5px 5px grey;
     z-index: -1;
 }
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (orientation: portrait) {
+    #map {
+        width: 250px;
+        height: 200px;
+    }
+}

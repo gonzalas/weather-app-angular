@@ -68,3 +68,43 @@
     box-shadow: 2px 3px #b7c2ae;
     text-align: center;
 }
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (orientation: portrait) {
+    .container {
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+    }
+    .container .map {
+        margin: 0;
+        padding: 0;
+    }
+    .forecast-container header h1 {
+        font-size: 1em;
+    }
+    .forecast-container {
+        margin: 0;
+        margin-bottom: 40px;
+    }
+    #forecast-title {
+        background: none;
+        border: none;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    #forecast-title div h5 {
+        display: flex;
+        flex-flow: column wrap;
+        padding: 5px;
+        margin: 0;
+        width: 100%;
+        font-weight: 300;
+        background-color: #318f2c;
+        border: 3px solid #b7c2ae;
+        height: 65px;
+    }
+    .forecast-description {
+        font-size: 0.7em;
+    }
+}
